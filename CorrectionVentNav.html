@@ -14,7 +14,7 @@
             Corrections de cap et facteur de base pour la navigation en VFR
             <div class="input-group">
                 <span class="input-group-text">Vp = </span>
-                <input type="number" class="form-control" min="40" max="200" onKeyUp="numberOnly($(this))" onchange="UpdateDocument($(this).val())" placeholder="vitesse propre en kt">
+                <input type="number" class="form-control" min="40" max="200" onchange="UpdateDocument($(this))" placeholder="vitesse propre en kt">
                 <span class="input-group-text">kts</span>
             </div>
             (= <span id="vitesseKPH"></span> km/h)
@@ -59,7 +59,9 @@
         }
         
         //Met à jour la page en fonction de la Vp renseignée
-        function UpdateDocument(vp) {
+        function UpdateDocument(field) {
+            if (!isNumber(field)) return 0;
+            var vp = field.val()
             $("#vitesseKPH").text(ConvertKtToKph(vp))
             $("#angleAuVent").empty()
             $("#angleAuVent").append("<th scope=\"col\"></th>")
@@ -67,14 +69,13 @@
                 $("#angleAuVent").append("<th scope=\"col\">"+element+"°</th>")
             });
             fillTable(vp)
+            return 1;
         }
         
-        function numberOnly(field){
-            var pattern = new RegExp("[0-9]+");
-            var res = pattern.test(field.val());
-            if(!res){
-                field.val() -= field.val()[field.val().length-1]
-            }
+        //Vérifie si le contenu du champ est un nombre entier
+        function isNumber(field){
+            var pattern = new RegExp("[0-9]+")
+            return pattern.test(field.val().toString())
         }
 
     </script>
