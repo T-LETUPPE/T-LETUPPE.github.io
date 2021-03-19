@@ -16,8 +16,8 @@
                 <span class="input-group-text">Vp = </span>
                 <input type="number" class="form-control" min="50" max="250" onKeyUp="UpdateDocument($(this))" placeholder="Entrez une valeur entre 50 et 250 kts">
                 <span class="input-group-text">kts</span>
+                <span class="input-group-text">&asymp; <span id="vitesseKPH">X</span> km/h</span>
             </div>
-            (= <span id="vitesseKPH"></span> km/h)
             <table class="table table-bordered">
                 <caption>Si le vent vient de la gauche, soustraire la dérive. Si le vent vient de la droite, ajouter la dérive. Les caps sont arrondis aux 5° les plus proches. Les Fb sont arrondis aux 0.01 les plus proches.</caption>
                 <thead>
@@ -33,17 +33,21 @@
         </div>
     </body>
     <script>
-        //Liste des angles au vent à calculer
+        //Liste des angles au vent à calculer (de 0 à 180)
         var degArr = []
         for (let i = 0; i <= 12; i++) {
             degArr.push(i*15)
         }
+        //Liste des vitesses de vent à utiliser (en kt)
         var vitesseVentArr = [5, 10, 15, 20, 25, 30]
         
         //Remplis la table
         function fillTable(vp) {
+            //Vide la table pour remplacer les données
             $("#tableCorr").empty()
+            //Incréments i pour les les lignes et j pour les colonnes
             var i=0, j=0
+            //Calcul du contenu de l'ensemble des cellules de la table
             vitesseVentArr.forEach(vitesse => {
                 var rowContent = ""
                 rowContent += "<tr><th scope=\"row\">"+vitesse+"&nbsp;kt</th>"
@@ -58,19 +62,23 @@
             });
         }
         
-        //Met à jour la page en fonction de la Vp renseignée
+        //Mise à jour de la page en fonction du champ vp
         function UpdateDocument(field) {
-            if (!isNumber(field)) return 0;
-            else if (field.val() < 50 || field.val() > 250) return 0
+            //S'arrête si la valeur du champ n'est pas un nombre
+            if (!isNumber(field)) return 0
             var vp = field.val()
+            //S'arrête si la Vp est hors de l'intervalle
+            if (vp < 50 || vp > 250) return 0
+            //Renseigne la conversion en km/h
             $("#vitesseKPH").text(ConvertKtToKph(vp))
+            //Remplis l'en-tête de la table avec les angles au vent
             $("#angleAuVent").empty()
             $("#angleAuVent").append("<th scope=\"col\"></th>")
             degArr.forEach(element => {
                 $("#angleAuVent").append("<th scope=\"col\">"+element+"°</th>")
             });
             fillTable(vp)
-            return 1;
+            return 1
         }
         
         //Vérifie si le contenu du champ est un nombre entier
