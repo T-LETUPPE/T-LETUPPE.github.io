@@ -14,7 +14,7 @@
             Corrections de cap et facteur de base pour la navigation en VFR
             <div class="input-group">
                 <span class="input-group-text">Vp = </span>
-                <input type="number" class="form-control" min="40" max="200" onchange="UpdateDocument($(this).val())" placeholder="vitesse propre en kt">
+                <input type="number" class="form-control" min="40" max="200" onKeyUp="numberOnly($(this))" onchange="UpdateDocument($(this).val())" placeholder="vitesse propre en kt">
                 <span class="input-group-text">kts</span>
             </div>
             (= <span id="vitesseKPH"></span> km/h)
@@ -68,5 +68,14 @@
             });
             fillTable(vp)
         }
+        
+        function numberOnly(field){
+            var pattern = new RegExp("[0-9]+");
+            var res = pattern.test(field.val());
+            if(!res){
+                field.val() -= field.val()[field.val().length-1]
+            }
+        }
+
     </script>
 </html>
