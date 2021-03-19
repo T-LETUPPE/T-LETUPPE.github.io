@@ -9,7 +9,7 @@
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="page">
             Corrections de cap et facteur de base pour la navigation en VFR
             <div class="input-group">
                 <span class="input-group-text">Vp = </span>
@@ -17,8 +17,6 @@
                 <span class="input-group-text">kts</span>
             </div>
             (= <span id="vitesseKPH"></span> km/h)
-        </div>
-        <div class="container">
             <table class="table table-bordered">
                 <caption>Si le vent vient de la gauche, soustraire la dérive. Si le vent vient de la droite, ajouter la dérive. Les caps sont arrondis aux 5° les plus proches. Les Fb sont arrondis aux 0.01 les plus proches.</caption>
                 <thead>
@@ -28,9 +26,9 @@
                 <tbody id="tableCorr">
                 </tbody>
             </table>
-        </div>
         <div class="alert alert-danger">
             <strong>Attention</strong>, cet outil est toujours en cours de développement.
+        </div>
         </div>
     </body>
     <script>
