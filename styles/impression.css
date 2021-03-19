@@ -8,5 +8,13 @@
 }
 
 table{
-  width : 90%;
+  table-layout : fixed;
+}
+
+td{
+  font-size : 10px;
+}
+
+.alert{
+  display : none;
 }
