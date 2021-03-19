@@ -14,7 +14,7 @@
             Corrections de cap et facteur de base pour la navigation en VFR
             <div class="input-group">
                 <span class="input-group-text">Vp = </span>
-                <input type="number" class="form-control" min="40" max="200" onKeyUp="UpdateDocument($(this))" placeholder="vitesse propre en kt">
+                <input type="number" class="form-control" min="50" max="200" onKeyUp="UpdateDocument($(this))" placeholder="vitesse propre en kt">
                 <span class="input-group-text">kts</span>
             </div>
             (= <span id="vitesseKPH"></span> km/h)
@@ -61,6 +61,7 @@
         //Met à jour la page en fonction de la Vp renseignée
         function UpdateDocument(field) {
             if (!isNumber(field)) return 0;
+            else if (field.val() < 50 || field.val() > 200) return 0
             var vp = field.val()
             $("#vitesseKPH").text(ConvertKtToKph(vp))
             $("#angleAuVent").empty()
