@@ -18,3 +18,11 @@ td{
 .alert{
   display : none;
 }
+
+.noPrint{
+  display : none;
+}
+
+.printOnly{
+  display : flow;
+}
