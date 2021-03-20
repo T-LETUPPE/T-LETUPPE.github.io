@@ -3,6 +3,10 @@
   border : none;
 }
 
+h1, h2{
+  text-align : center;
+}
+
 .container{
   margin : 5%;
 }
