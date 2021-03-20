@@ -25,4 +25,5 @@ td{
 
 .printOnly{
   display : flow;
+  text-align : center;
 }
