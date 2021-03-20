@@ -11,7 +11,9 @@
     </head>
     <body>
         <div class="container" id="page">
-            Corrections de cap et facteur de base pour la navigation en VFR
+            <div class="noPrint">
+                Corrections de cap et facteur de base pour la navigation en VFR
+            </div>
             <div class="input-group noPrint">
                 <span class="input-group-text">Vp = </span>
                 <input type="number" class="form-control" min="50" max="250" onKeyUp="UpdateDocument($(this))" placeholder="Entrez une valeur entre 50 et 250 kts">
@@ -19,7 +21,7 @@
                 <span class="input-group-text">&asymp;&nbsp;<span id="vitesseKPH">X</span>&nbsp;km/h</span>
             </div>
             <div class="printOnly">
-                <h1>Corrections de vent pour la navigation VFR</h1>
+                <h2>Corrections de vent pour la navigation VFR</h2>
                 Pour Vp = <span id="vitesseKT">X</span> kts (&asymp;<span class="vitesseKPH">X</span> km/h)
             </div>
             <table class="table table-bordered">
@@ -78,7 +80,7 @@
             if (vp < 50 || vp > 250) return 0
             //Renseigne la conversion en km/h
             $(".vitesseKPH").text(ConvertKtToKph(vp))
-            $("vitesseKT").text(vp)
+            $("#vitesseKT").text(vp)
             //Remplis l'en-tête de la table avec les angles au vent
             $("#angleAuVent").empty()
             $("#angleAuVent").append("<th scope=\"col\"></th>")
