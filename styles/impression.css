@@ -28,6 +28,6 @@ td{
 }
 
 .printOnly{
-  display : flow;
+  display : block;
   text-align : center;
 }
