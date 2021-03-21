@@ -1,28 +1,36 @@
 html{
    width : 29.7cm;
- }
- #page{
+}
+
+#page{
    margin : 0;
    border : none;
 }
+
 h1, h2{
   text-align : center;
 }
+
 .container{
   margin : 5%;
 }
+
 table{
   table-layout : fixed;
 }
+
 td{
   font-size : 10px;
 }
+
 .alert{
   display : none;
 }
+
 .noPrint{
   display : none;
 }
+
 .printOnly{
   display : block;
   text-align : center;
