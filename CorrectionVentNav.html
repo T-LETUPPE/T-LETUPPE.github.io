@@ -29,7 +29,7 @@
                 <caption>Si le vent vient de la gauche, soustraire la dérive. Si le vent vient de la droite, ajouter la dérive. Les caps sont arrondis aux 5° les plus proches. Les Fb sont arrondis aux 0.01 les plus proches.</caption>
                 <thead>
                     <tr>
-                        <th rowspan="2">Vitesse du vent</th><th colspan="13" style="text-align:center;">Angle au vent</th>
+                        <th rowspan="2">Vitesse du vent</th><th colspan="13">Angle au vent</th>
                     </tr>
                     <tr id="angleAuVent">
                     </tr>
@@ -62,7 +62,7 @@
                 var rowContent = "";
                 rowContent += "<tr><th scope=\"row\">"+vitesse+"&nbsp;kt</th>";
                 degArr.forEach(degree => {
-                    rowContent += "<td style=\"text-align: center;\">X&nbsp;=&nbsp;"+GetDerive(vp, vitesseVentArr[i], degArr[j])+"°<br/>Fb&nbsp;=&nbsp;"+round(60/(vp-GetVentEffectif(vp, vitesseVentArr[i], degArr[j])), 0.01).toFixed(2)+"</td>";
+                    rowContent += "<td>X&nbsp;=&nbsp;"+GetDerive(vp, vitesseVentArr[i], degArr[j])+"°<br/>Fb&nbsp;=&nbsp;"+round(60/(vp-GetVentEffectif(vp, vitesseVentArr[i], degArr[j])), 0.01).toFixed(2)+"</td>";
                     j++;
                 });
                 rowContent += "</tr>";
