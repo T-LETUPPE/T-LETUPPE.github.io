@@ -2,17 +2,14 @@ html{
    width : 29.7cm;
 }
 
-#page{
+@page{
+   size : a4 landscape;
    margin : 0;
    border : none;
 }
 
 h1, h2{
   text-align : center;
-}
-
-.container{
-  margin : 5%;
 }
 
 table{
