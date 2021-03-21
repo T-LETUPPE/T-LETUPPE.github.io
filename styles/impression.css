@@ -8,6 +8,10 @@ html{
    border : none;
 }
 
+.container{
+   padding : 0;
+}
+
 h1, h2{
   text-align : center;
 }
