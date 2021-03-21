@@ -9,7 +9,9 @@ html{
 }
 
 .container{
-   padding : 0;
+   padding : 2%;
+   margin : auto;
+   max-width : max-content;
 }
 
 h1, h2{
