@@ -1,4 +1,5 @@
 table, th, td{
+  table-layout : fixed;
   text-align : center;
   vertical-align : middle;
 }
